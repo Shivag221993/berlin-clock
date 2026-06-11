@@ -21,7 +21,11 @@
     "noImplicitReturns": true,
 
     /* Include Types for Vitest and Jest-DOM Matchers */
-    "types": ["@testing-library/jest-dom/vitest", "vitest/globals"]
+    "types": [
+      "vite/client",
+      "@testing-library/jest-dom/vitest",
+      "vitest/globals"
+    ]
   },
   "include": ["src"]
 }
