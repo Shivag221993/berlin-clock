@@ -39,7 +39,6 @@
   margin: 0 auto 16px auto;
 }
 
-/* Color Modifiers */
 .lamp-off { background-color: #4a5568; }
 .lamp-red { background-color: #e53e3e; }
 .lamp-yellow { background-color: #ecc94b; }
@@ -51,7 +50,6 @@
   font-family: monospace;
 }
 
-/* Controls Styling */
 .berlin-clock-controls {
   margin-top: 20px;
   display: flex;

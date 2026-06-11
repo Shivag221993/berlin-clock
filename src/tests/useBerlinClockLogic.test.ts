@@ -87,14 +87,11 @@ describe("useBerlinClockLogic - Comprehensive Algorithm & Matrix Testing", () =>
   });
 
   it("verifies exact threshold where the third, sixth, and ninth minute lamps change to red pattern indicators", () => {
-    // 15 mins -> 3 lamps illuminated (index 0, 1, 2). The 3rd lamp (index 2) must be true.
     const { result: fifteenMins } = renderHook(() =>
       useBerlinClockLogic(0, 15, 0),
     );
     expect(fifteenMins.current.fiveMinutesRow[2]).toBe(true);
     expect(fifteenMins.current.fiveMinutesRow[3]).toBe(false);
-
-    // 45 mins -> 9 lamps illuminated. Index 2, 5, and 8 must be true.
     const { result: fortyFiveMins } = renderHook(() =>
       useBerlinClockLogic(0, 45, 0),
     );

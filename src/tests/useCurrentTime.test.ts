@@ -31,17 +31,17 @@ describe("useCurrentTime - Deep Lifecycle & Boundary Tests", () => {
   });
 
   it("should handle rapid successive ticks correctly across multiple seconds", () => {
-    const mockDate = new Date(2026, 0, 1, 0, 0, 0); // New Year
+    const mockDate = new Date(2026, 0, 1, 0, 0, 0);
     vi.setSystemTime(mockDate);
     const { result } = renderHook(() => useCurrentTime());
 
     act(() => {
-      vi.advanceTimersByTime(5000); // 5 seconds
+      vi.advanceTimersByTime(5000);
     });
     expect(result.current.getSeconds()).toBe(5);
 
     act(() => {
-      vi.advanceTimersByTime(55000); // Up to a minute
+      vi.advanceTimersByTime(55000);
     });
     expect(result.current.getMinutes()).toBe(1);
     expect(result.current.getSeconds()).toBe(0);

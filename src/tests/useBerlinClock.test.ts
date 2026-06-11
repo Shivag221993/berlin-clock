@@ -18,7 +18,7 @@ describe("useBerlinClock - Orchestration Facade & State Matrix Tests", () => {
   });
 
   it("should return 2-digit zero-padded digital time strings during standard automated tracking modes", () => {
-    const mockDate = new Date(2026, 5, 10, 5, 5, 4); // 05:05:04
+    const mockDate = new Date(2026, 5, 10, 5, 5, 4);
     vi.setSystemTime(mockDate);
 
     const { result } = renderHook(() => useBerlinClock());
@@ -45,7 +45,6 @@ describe("useBerlinClock - Orchestration Facade & State Matrix Tests", () => {
     act(() => {
       result.current.setIsCustomMode(true);
     });
-    // Custom time state value preserved
     expect(result.current.digitalTime).toBe("14:20:00");
   });
 
