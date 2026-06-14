@@ -39,7 +39,6 @@ describe("useBerlinClock - Orchestration Facade & State Matrix Tests", () => {
     act(() => {
       result.current.setIsCustomMode(false);
     });
-    // Now displays system track time
     expect(result.current.digitalTime).not.toBe("14:20:00");
 
     act(() => {

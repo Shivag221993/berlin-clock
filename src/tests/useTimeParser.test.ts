@@ -46,10 +46,9 @@ describe("useTimeParser - Robust Edge Cases & Parsing Stress Tests", () => {
     const { result } = renderHook(() => useTimeParser(testDate, "1:2:3"));
     expect(result.current).toEqual({ hours: 1, minutes: 2, seconds: 3 });
   });
-
-  it("should clamp or fallback to zero when receiving extreme outbound time numbers", () => {
+  it("should fallback to zero when receiving extreme outbound time numbers", () => {
     const testDate = new Date();
     const { result } = renderHook(() => useTimeParser(testDate, "99:99:99"));
-    expect(result.current).toEqual({ hours: 99, minutes: 99, seconds: 99 });
+    expect(result.current).toEqual({ hours: 0, minutes: 0, seconds: 0 });
   });
 });

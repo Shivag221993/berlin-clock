@@ -19,15 +19,13 @@ describe("useCurrentTime - Deep Lifecycle & Boundary Tests", () => {
     expect(result.current.getTime()).toBe(mockDate.getTime());
   });
 
-  it("should progress time forwards on every interval tick", () => {
+  it("should progress time forwards on every interval tick precisely", () => {
     const { result } = renderHook(() => useCurrentTime());
     const initialTime = result.current.getTime();
-
     act(() => {
       vi.advanceTimersByTime(1000);
     });
-
-    expect(result.current.getTime()).toBeGreaterThanOrEqual(initialTime + 1000);
+    expect(result.current.getTime()).toBe(initialTime + 1000);
   });
 
   it("should handle rapid successive ticks correctly across multiple seconds", () => {
