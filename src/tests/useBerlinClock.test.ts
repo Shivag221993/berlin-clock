@@ -61,4 +61,8 @@ describe("useBerlinClock - Orchestration Facade & State Matrix Tests", () => {
     });
     expect(result.current.oneHourRow).toEqual([true, true, false, false]);
   });
+  it("should fail if default customTime state string literal is mutated to empty", () => {
+    const { result } = renderHook(() => useBerlinClock());
+    expect(result.current.customTime).toBe("12:00:00");
+  });
 });

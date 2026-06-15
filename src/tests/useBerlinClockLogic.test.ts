@@ -106,4 +106,13 @@ describe("useBerlinClockLogic - Comprehensive Algorithm & Matrix Testing", () =>
     expect(result.current.fiveHoursRow).toEqual([true, true, false, false]);
     expect(result.current.oneHourRow).toEqual([true, true, false, false]);
   });
+
+  it('should return completely dark rows at absolute midnight to guard array fill defaults', () => {
+  const { result } = renderHook(() => useBerlinClockLogic(0, 0, 0));
+
+  expect(result.current.fiveHoursRow).toEqual([false, false, false, false]);
+  expect(result.current.oneHourRow).toEqual([false, false, false, false]);
+  expect(result.current.fiveMinutesRow).toEqual(Array(11).fill(false));
+  expect(result.current.oneMinuteRow).toEqual([false, false, false, false]);
+});
 });

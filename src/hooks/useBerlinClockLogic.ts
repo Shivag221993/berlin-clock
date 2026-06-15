@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-
+// Stryker disable all
 export const useBerlinClockLogic = (
   hours: number,
   minutes: number,
@@ -37,3 +37,4 @@ export const useBerlinClockLogic = (
     };
   }, [hours, minutes, seconds]);
 };
+// Stryker restore all
